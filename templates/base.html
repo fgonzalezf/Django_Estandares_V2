@@ -95,20 +95,67 @@
 
        <div class="container">
            <div class="page-header">
-               <h1>GESTIÓN DE ESTANDARIZACIÓN</h1>
+               <h2>Gestión de estandarización del SGC</h2>
            </div>
-           <p class="lead">{% block titulopagina %}Listado Tematicas{% endblock %}</p>
+           <p >
+              <B>Esta herramienta ha sido diseñada para que los usuarios de la información geocientífica puedan:</B>
+           </p>
+          <p >
+              1) Conocer la existencia de todos los estándares oficiales aceptados para el manejo de la información en las diferentes temáticas y tipos de documentación y que se encuentran vigentes.
+           </p>
+          <p >
+            2) Tener acceso a otras versiones (si las hay) de los estándares que pudieran ser de utilidad para datos que aplicaron versiones previas.
+           </p>
+          <p >
+              3) Conocer los documentos de estándares que se encuetran en discusión.
+           </p>
+          <p >
+              4) Participar en las discusiones de los estándares y aportar comentarios o documentos que ayuden a consolidar los estándares en presparación.
+           </p>
+           <p class="lead">{% block titulopagina %}<h4>Busqueda por Tematica y Area</h4>{% endblock %}</p>
            {% block Contenido%}
            <br>
            <br>
            <br>
            <br>
-           <div class="contenedor">
-               <a href={% url 'Tematicas' %}?tipo=Manual class="hvr-rectangle-in button1">Manuales</a>
-               <a href={% url 'Tematicas' %}?tipo=Proceso class="hvr-rectangle-in button2">Procesos</a>
-               <a href={% url 'Tematicas' %}?tipo=Procedimiento class="hvr-rectangle-in button3">Procedimientos y Estandares</a>
-               <a href={% url 'Tematicas' %}?tipo=Guia class="hvr-rectangle-in button4">Guias e Instrucciones de Trabajo</a>
-               <a href={% url 'Tematicas' %}?tipo=Registro class="hvr-rectangle-in button5">Registros</a>
+           <div class="row">
+              <h3>Busqueda de Documentos </h3>
+        <form class="form-inline" role="form" action="{% url 'Consulta' %}" method="post">
+            {% csrf_token %}
+
+          <div class="form-group">
+            <div class="form-group">
+            <select class="form-control" name="Tematica">
+              <option value="" selected="selected">Seleccione la Temática</option>
+              <option value="MANUAL">Manuales</option>
+              <option value="PROCESO">Procesos</option>
+              <option value="PROCEDIMIENTO">Procedimientos y Estándares</option>
+              <option value="GUIA">Guías e instructivos de Trabajo</option>
+              <option value="REGISTRO">Registros</option>
+
+            </select>
+          </div>
+              <div class="form-group">
+            <select class="form-control" name="Area">
+              <option value="" selected="selected">Seleccione el Area</option>
+              <option value="HIDROCARBUROS">Hidrocarburos</option>
+              <option value="LABORATORIOS">Laboratorios</option>
+              <option value="NUCLEARES">Asuntos Nucleares</option>
+              <option value="MINERALES">Recursos Minerales</option>
+              <option value="GEOAMENAZAS">Geoamenazas</option>
+              <option value="GEOCIENCIAS">Geociencias Básicas</option>
+
+            </select>
+          </div>
+              <div class="form-group" >
+
+                  <button class="form-control" type="submit">
+                      <span class="glyphicon glyphicon-search"></span>
+                  </button>
+
+              </div>
+          </div>
+        </form>
 
            </div>
        {% endblock %}

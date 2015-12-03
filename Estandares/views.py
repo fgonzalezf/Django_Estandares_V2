@@ -8,12 +8,11 @@ class Home(TemplateView):
 class Tematicas(TemplateView):
     template_name = "tematicas.html"
 
-class ListaDocumentos(ListView):
-    template_name = "consulta.html"
-    model = Documento
-    def get(self, request, *args, **kwargs):
-        busquedaTipo = request.GET.get('tipo', '').upper()
-        busquedaTematica= request.GET.get('tema', '').upper()
+
+class ListaDocumentos(TemplateView):
+    def post(self, request, *args, **kwargs):
+        busquedaTipo = request.POST['Tematica'].upper()
+        busquedaTematica= request.POST['Area'].upper()
         Documentos= Documento.objects.filter(tipo__contains=busquedaTipo)
         Documentosfin= Documentos.filter(tematica__contains=busquedaTematica)
         datos=[]
@@ -27,6 +26,7 @@ class ListaDocumentos(ListView):
                         print doc.url
 
         return render(request,'consulta.html',{'datos':datos})
+
 
 class FormularioConsultaView(CreateView):
     template_name = 'Formulario.html'
