@@ -1,0 +1,89 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  /*width: 100%;*/
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #8ca448;
+}
+
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover {
+  background-color: #a6bb3f;
+}
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+.navbar-default
+{
+  background-color: #8ca448;
+}
+
+
+#LogoSGC {
+  background-image: url(images/fondo_encabezado.jpg);
+  background-size: 1115px 120px;
+  background-repeat: no-repeat;
+  background-color: #ffffff;
+  height: 90px;
+  width: 100%;
+  position: relative;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+  background-color: #c9d743;
+}
+body > .container {
+  /*padding: 60px 15px 0;*/
+}
+.container .text-muted {
+  margin: 20px 0;
+  max-width: 1200px;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+
+/* Customize container */
+
+.container {
+    max-width: 1200px;
+}
+
+
+
+
+/* buscar*/
+
+#imaginary_container{
+
+}
+.stylish-input-group .input-group-addon{
+    background: white !important;
+}
+.stylish-input-group .form-control{
+	border-right:0;
+	box-shadow:0 0 0;
+	border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
+
+

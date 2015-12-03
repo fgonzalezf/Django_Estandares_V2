@@ -1,0 +1,24 @@
+[
+
+  {
+    "Nombre": "Guia para visitantes del museo del Servicio Geologico Nacional",
+    "Tipo": "Guia",
+    "Codigo": "GU-COM-VMG-001",
+    "Publicacion": "02/08/2015",
+    "Vigencia": "02/08/2015",
+    "Versiones": "Fiat",
+    "Documentacion": "http://www.primefaces.org/primeui/"
+
+  },
+  {
+    "Nombre": "1a4c74c9",
+    "Tipo": "Fiat",
+    "Codigo": 2008,
+    "Publicacion": "Orange",
+    "Vigencia": "1a4c74c9",
+    "Versiones": "Fiat",
+    "Documentacion": ""
+
+  }
+
+]

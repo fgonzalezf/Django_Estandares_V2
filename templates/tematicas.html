@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block titulopagina %}Listado Por Aréas{% endblock %}
+{% block script %}
+<script>
+         function GetURLParameter(sParam)
+         {
+             var sPageURL = window.location.search.substring(1);
+             var sURLVariables = sPageURL.split('&');
+             for (var i = 0; i < sURLVariables.length; i++)
+             {
+                 var sParameterName = sURLVariables[i].split('=');
+                 if (sParameterName[0] == sParam)
+                 {
+                     return sParameterName[1];
+                 }
+             }
+
+
+         }
+         function ruta(tema)
+         {
+             var URLdomain = window.location.host;
+             var url = "/EstandaresSGC/consulta.html"+"?tipo="+GetURLParameter("tipo")+"&"+"tema="+tema;
+             window.location.href=url;
+         }
+     </script>
+{% endblock %}
+{% block Contenido%}
+           <br>
+           <br>
+           <br>
+           <br>
+           <div class="contenedor">
+               <a href="#" class="hvr-rectangle-in button11"  onclick="ruta('Hidrocarburos')">Hidrocarburos</a>
+               <a href="#" class="hvr-rectangle-in button6"  onclick="ruta('Laboratorios')">Laboratorios</a>
+               <a href="#" class="hvr-rectangle-in button7"  onclick="ruta('Nucleares')">Asuntos Nucleares</a>
+               <a href="#" class="hvr-rectangle-in button8"  onclick="ruta('Minerales')">Recursos Minerales</a>
+               <a href="#" class="hvr-rectangle-in button9"  onclick="ruta('Geoamenazas')">Geoamenazas</a>
+               <a href="#" class="hvr-rectangle-in button10"  onclick="ruta('Geociencias')">Geociencias Básicas</a>
+           </div>
+{% endblock %}
