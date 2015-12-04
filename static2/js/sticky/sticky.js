@@ -11,7 +11,7 @@ c.off(b).on(b,function(){if(c.scrollTop()>d.initialState.top){d._fix()
 this.ghost=$('<div class="pui-sticky-ghost"></div>').height(this.initialState.height).insertBefore(this.element);
 this.element.width(this.ghost.outerWidth()-(this.element.outerWidth()-this.element.width()));
 this.fixed=true
-}},_restore:function(){if(this.fixed){this.element.css({position:"static",top:"auto",width:"auto"}).removeClass("pui-shadow pui-sticky");
+}},_restore:function(){if(this.fixed){this.element.css({position:"static2",top:"auto",width:"auto"}).removeClass("pui-shadow pui-sticky");
 this.ghost.remove();
 this.fixed=false
 }}})

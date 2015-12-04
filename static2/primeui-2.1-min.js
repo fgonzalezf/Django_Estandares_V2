@@ -874,7 +874,7 @@ if(a){this.element.effect("transfer",{to:c,className:"pui-dialog-minimizing"},50
 b.element.addClass("pui-dialog-minimized")
 })
 }else{this._dock(c)
-}}},_dock:function(a){this.element.appendTo(a).css("position","static");
+}}},_dock:function(a){this.element.appendTo(a).css("position","static2");
 this.element.css({height:"auto",width:"auto","float":"left"});
 this.content.hide();
 this.minimizeIcon.removeClass("ui-state-hover").children(".ui-icon").removeClass("ui-icon-minus").addClass("ui-icon-plus");
@@ -2485,7 +2485,7 @@ c.off(b).on(b,function(){if(c.scrollTop()>d.initialState.top){d._fix()
 this.ghost=$('<div class="pui-sticky-ghost"></div>').height(this.initialState.height).insertBefore(this.element);
 this.element.width(this.ghost.outerWidth()-(this.element.outerWidth()-this.element.width()));
 this.fixed=true
-}},_restore:function(){if(this.fixed){this.element.css({position:"static",top:"auto",width:"auto"}).removeClass("pui-shadow pui-sticky");
+}},_restore:function(){if(this.fixed){this.element.css({position:"static2",top:"auto",width:"auto"}).removeClass("pui-shadow pui-sticky");
 this.ghost.remove();
 this.fixed=false
 }}})

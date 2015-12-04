@@ -132,7 +132,7 @@ if(a){this.element.effect("transfer",{to:c,className:"pui-dialog-minimizing"},50
 b.element.addClass("pui-dialog-minimized")
 })
 }else{this._dock(c)
-}}},_dock:function(a){this.element.appendTo(a).css("position","static");
+}}},_dock:function(a){this.element.appendTo(a).css("position","static2");
 this.element.css({height:"auto",width:"auto","float":"left"});
 this.content.hide();
 this.minimizeIcon.removeClass("ui-state-hover").children(".ui-icon").removeClass("ui-icon-minus").addClass("ui-icon-plus");
