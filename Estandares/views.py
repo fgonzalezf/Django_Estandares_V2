@@ -54,4 +54,18 @@ class Busqueda(TemplateView):
                 datos.append(dict([(documento,versionesAnt)]))
         return render(request,"Busqueda.html",{'datos':datos})
 
+class DocConsulta(TemplateView):
+    def post(self,request,*args,**kwargs):
+        nombreDoc = Documento.objects.filter(discusion__contains="SI")
+        documentos=[]
+        datos=[]
+        if nombreDoc:
+            for doc in nombreDoc:
+                documentos.append(doc)
+        if documentos:
+            for documento in documentos:
+                versionesAnt= Versiones.objects.filter(codigo=documento.pk)
+                datos.append(dict([(documento,versionesAnt)]))
+        return render(request,"docConsulta.html",{'datos':datos})
+
 # Create your views here.

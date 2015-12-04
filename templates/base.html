@@ -97,6 +97,7 @@
            <div class="page-header">
                <h2>Gestión de estandarización del SGC</h2>
            </div>
+          {% block presentacion %}
            <p >
               <B>Esta herramienta ha sido diseñada para que los usuarios de la información geocientífica puedan:</B>
            </p>
@@ -112,55 +113,70 @@
           <p >
               4) Participar en las discusiones de los estándares y aportar comentarios o documentos que ayuden a consolidar los estándares en presparación.
            </p>
-           <p class="lead">{% block titulopagina %}<h4>Busqueda por Tematica y Area</h4>{% endblock %}</p>
+       {% endblock %}
+           <p class="lead">{% block titulopagina %}{% endblock %}</p>
            {% block Contenido%}
-           <br>
-           <br>
-           <br>
-           <br>
-           <div class="row">
-              <h3>Busqueda de Documentos </h3>
-        <form class="form-inline" role="form" action="{% url 'Consulta' %}" method="post">
-            {% csrf_token %}
+               <div class="jumbotron"  style="margin:0 auto 0 auto" >
+                    <div class="row" style="margin:0 auto 0 auto ; width: 500px;">
+                        <h4 style="text-align: center">Busqueda por Temática y Area </h4>
+                        <form class="form-inline" role="form" action="{% url 'Consulta' %}" method="post" >
+                            {% csrf_token %}
 
-          <div class="form-group">
-            <div class="form-group">
-            <select class="form-control" name="Tematica">
-              <option value="" selected="selected">Seleccione la Temática</option>
-              <option value="MANUAL">Manuales</option>
-              <option value="PROCESO">Procesos</option>
-              <option value="PROCEDIMIENTO">Procedimientos y Estándares</option>
-              <option value="GUIA">Guías e instructivos de Trabajo</option>
-              <option value="REGISTRO">Registros</option>
+                          <div class="form-group">
+                            <div class="form-group">
+                            <select class="form-control" name="Tematica">
+                              <option value="" selected="selected">Seleccione la Temática</option>
+                              <option value="MANUAL">Manuales</option>
+                              <option value="PROCESO">Procesos</option>
+                              <option value="PROCEDIMIENTO">Procedimientos y Estándares</option>
+                              <option value="GUIA">Guías e instructivos de Trabajo</option>
+                              <option value="REGISTRO">Registros</option>
 
-            </select>
-          </div>
-              <div class="form-group">
-            <select class="form-control" name="Area">
-              <option value="" selected="selected">Seleccione el Area</option>
-              <option value="HIDROCARBUROS">Hidrocarburos</option>
-              <option value="LABORATORIOS">Laboratorios</option>
-              <option value="NUCLEARES">Asuntos Nucleares</option>
-              <option value="MINERALES">Recursos Minerales</option>
-              <option value="GEOAMENAZAS">Geoamenazas</option>
-              <option value="GEOCIENCIAS">Geociencias Básicas</option>
+                            </select>
+                          </div>
+                              <div class="form-group">
+                            <select class="form-control" name="Area">
+                              <option value="" selected="selected">Seleccione el Area</option>
+                              <option value="HIDROCARBUROS">Hidrocarburos</option>
+                              <option value="LABORATORIOS">Laboratorios</option>
+                              <option value="NUCLEARES">Asuntos Nucleares</option>
+                              <option value="MINERALES">Recursos Minerales</option>
+                              <option value="GEOAMENAZAS">Geoamenazas</option>
+                              <option value="GEOCIENCIAS">Geociencias Básicas</option>
 
-            </select>
-          </div>
-              <div class="form-group" >
+                            </select>
+                          </div>
+                              <div class="form-group" >
 
-                  <button class="form-control" type="submit">
-                      <span class="glyphicon glyphicon-search"></span>
-                  </button>
+                                  <button class="form-control" type="submit">
+                                      <span class="glyphicon glyphicon-search"></span>
+                                  </button>
 
-              </div>
-          </div>
-        </form>
+                              </div>
+                          </div>
+                        </form>
 
            </div>
-       {% endblock %}
-       </div>
 
+
+
+       </div>
+                <br>
+                <br>
+               <div class="jumbotron"  style="margin:0 auto 0 auto" >
+                    <div class="row" style="margin:0 auto 0 auto ; width: 235px;">
+                        <form class="form-inline" role="form" action="{% url 'DocConsulta' %}" method="post" >
+                             {% csrf_token %}
+                                 <h4 style="text-align: center">Busqueda Estandares en Discusión </h4>
+
+                                  <button type="submit">
+                                      <h5> Consulta Estandares En Discusión</h5>
+                                  </button>
+                        </form>
+
+                        </div>
+                </div>
+{% endblock %}
        <footer class="footer">
            <div class="container">
                <p class="text-muted">Servicio Geológico Colombiano - 2015</p>
