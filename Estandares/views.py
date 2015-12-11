@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.views.generic import TemplateView,ListView,CreateView
 from .models import Documento,Versiones,FormularioConsulta
 from django.core.urlresolvers import reverse_lazy
+from django.core.mail import EmailMessage
+from django.contrib import messages
 class Home(TemplateView):
     template_name = "index.html"
 
@@ -32,7 +34,12 @@ class FormularioConsultaView(CreateView):
     template_name = 'Formulario.html'
     model = FormularioConsulta
     fields = '__all__'
-    success_url = reverse_lazy('Guardado')
+    success_message="Mensaje"
+    success_url = reverse_lazy('Home')
+    def post(self, request, *args, **kwargs):
+        email = EmailMessage('Hello', 'World', to=['pachecofgf@gmail.com'])
+        email.send()
+
 
 class Busqueda(TemplateView):
     def post(self,request,*args,**kwargs):
@@ -69,3 +76,4 @@ class DocConsulta(TemplateView):
         return render(request,"docConsulta.html",{'datos':datos})
 
 # Create your views here.
+# application/msword

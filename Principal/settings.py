@@ -107,3 +107,9 @@ STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static2')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static2"),
 )
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'geoportalsgc@gmail.com'
+EMAIL_HOST_PASSWORD = 'administradorSGC#'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
