@@ -1,9 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponseRedirect
 from django.views.generic import TemplateView,ListView,CreateView
 from .models import Documento,Versiones,FormularioConsulta
 from django.core.urlresolvers import reverse_lazy
 from django.core.mail import EmailMessage
 from django.contrib import messages
+from Estandares.forms import ConsultaFormulario
+from django.views.decorators import csrf
+from django import forms
+
 class Home(TemplateView):
     template_name = "index.html"
 
@@ -30,15 +34,22 @@ class ListaDocumentos(TemplateView):
         return render(request,'consulta.html',{'datos':datos})
 
 
-class FormularioConsultaView(CreateView):
-    template_name = 'Formulario.html'
-    model = FormularioConsulta
-    fields = '__all__'
-    success_message="Mensaje"
-    success_url = reverse_lazy('Home')
-    def post(self, request, *args, **kwargs):
-        email = EmailMessage('Hello', 'World', to=['pachecofgf@gmail.com'])
-        email.send()
+
+def FormularioConsultaView(request):
+    if request.method == 'POST':
+        form = ConsultaFormulario(request.POST,request.FILES)
+        if form.is_valid():
+            cd = form.cleaned_data
+            asunto= "Sugerencias al estandar " +cd['codigo']+" " + cd['nombre']
+            contenido= "Mensaje de: " +cd['contibuidor'] + " Correo Electronico: " + cd['correo'] + " Comentario: " +cd['comentario']
+
+            email = EmailMessage(asunto, contenido , to=['pachecofgf@gmail.com'])
+            email.attach_file(request.FILES['adjunto'].temporary_file_path())
+            email.send()
+            return render(request, 'successfully.html', {'form': form})
+    else:
+        form = ConsultaFormulario(initial={'codigo': request.GET['consulta'],'nombre': request.GET['nombrecon']})
+    return render(request, 'Formulario.html', {'form': form})
 
 
 class Busqueda(TemplateView):
@@ -69,6 +80,7 @@ class DocConsulta(TemplateView):
         if nombreDoc:
             for doc in nombreDoc:
                 documentos.append(doc)
+
         if documentos:
             for documento in documentos:
                 versionesAnt= Versiones.objects.filter(codigo=documento.pk)

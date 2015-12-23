@@ -60,7 +60,7 @@
                 {% endfor %}
 
                </td>
-           <td>{% if doc.discusion == "SI" %} <a href={% url 'Formulario_Consulta_publica' %}>Ver Consulta Publica </a>  {% else %} NO {% endif %}</td>
+           <td>{% if doc.discusion == "SI" %} <a method="get" href={% url 'Formulario_Consulta_publica' %}?consulta={{ doc.codigo }}&nombrecon={{ doc.nombre }}>Ver Consulta Publica </a>  {% else %} NO {% endif %}</td>
            <td><a href="{{ doc.url }}">Descarga </a> </td>
         </tr>
             {% endfor %}

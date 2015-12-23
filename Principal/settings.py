@@ -88,7 +88,7 @@ DATABASES = {
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
+FILE_UPLOAD_MAX_MEMORY_SIZE=0
 TIME_ZONE = 'UTC'
 
 USE_I18N = True

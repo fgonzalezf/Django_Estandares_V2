@@ -7,46 +7,11 @@ El diligenciamiento por parte de los usuarios y la respectiva evaluación por pa
 
     <br>
     <div align="center">
-    <form method="post" style="float: none">
-       {% csrf_token %}
-       <div class="fieldWrapper">
-                <B>Código asignado al estándar en Consulta:</B><br><br>
-                {{ form.codigo.errors }}
-            <label for="{{ form.codigo.id_for_label }}"></label>
-                {{ form.codigo }}
-       </div>
-        <br>
-        <div class="fieldWrapper">
-            <B>Nombre de quién hace la contribución:</B><br><br>
-                    {{ form.contibuidor.errors }}
-                    <label for="{{ form.contibuidor.id_for_label }}"></label>
-                {{ form.contibuidor }}
-        </div>
-        <br>
-        <div class="fieldWrapper">
-            <B>Escriba el nombre de la institución a la que pertenece:</B><br><br>
-                {{ form.institucion.errors }}
-            <label for="{{ form.institucion.id_for_label }}"></label>
-                {{ form.institucion }}
-        </div>
-        <br>
-        <div class="fieldWrapper">
-            <B>Correo Electronico</B><br><br>
-                {{ form.correo.errors }}
-                <label for="{{ form.correo.id_for_label }}"></label>
-                {{ form.correo }}
-        </div>
-        <br>
-        <div class="fieldWrapper">
-            <B>Comentarios y sugerencias al estándar en consulta</B><br><br>
-                {{ form.comentario.errors }}
-                <label for="{{ form.comentario.id_for_label }}"></label>
-                {{ form.comentario }}
-        </div>
-        <br>
-       <input type="submit" value="Enviar">
-    <br>
-         <br>
+    <form action="" enctype="multipart/form-data" method="post">{% csrf_token %}
+        <table>
+            {{ form.as_table}}
+        </table>
+        <input type="submit" value="Enviar">
     </form>
 </div>
-{% endblock %}
+{% endblock %}l

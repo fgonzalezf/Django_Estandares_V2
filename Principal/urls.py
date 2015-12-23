@@ -22,8 +22,8 @@ urlpatterns = [
     url(r'^EstandaresSGC/$', Home.as_view(), name= "Home"),
     url(r'^EstandaresSGC/tematicas',Tematicas.as_view(), name="Tematicas"),
     url(r'^EstandaresSGC/consulta',ListaDocumentos.as_view(),name="Consulta"),
-    url(r'^EstandaresSGC/formulario',FormularioConsultaView.as_view(),name= "Formulario_Consulta_publica"),
-    url(r'^EstandaresSGC/Guardado',FormularioConsultaView.as_view(),name="Guardado"),
+    url(r'^EstandaresSGC/formulario',FormularioConsultaView,name= "Formulario_Consulta_publica"),
+    url(r'^EstandaresSGC/Guardado',FormularioConsultaView,name="Guardado"),
     url(r'^EstandaresSGC/busqueda',Busqueda.as_view(),name="Busqueda"),
     url(r'^EstandaresSGC/docConsulta',DocConsulta.as_view(),name="DocConsulta"),
 
