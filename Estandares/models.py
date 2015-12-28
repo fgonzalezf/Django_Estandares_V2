@@ -22,10 +22,11 @@ class Versiones (models.Model):
 
 class FormularioConsulta(models.Model):
     codigo =models.ForeignKey(Documento)
+    nombre = models.CharField(max_length=200)
     contibuidor= models.CharField(max_length=200)
-    institucion= models.CharField(max_length=200)
     correo= models.EmailField(max_length=200)
     comentario= models.TextField()
+    adjunto=models.FileField(upload_to='documents/%Y/%m/%d')
     def __unicode__(self):
         return self.contibuidor
 

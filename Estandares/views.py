@@ -39,13 +39,16 @@ def FormularioConsultaView(request):
     if request.method == 'POST':
         form = ConsultaFormulario(request.POST,request.FILES)
         if form.is_valid():
+
             cd = form.cleaned_data
             asunto= "Sugerencias al estandar " +cd['codigo']+" " + cd['nombre']
             contenido= "Mensaje de: " +cd['contibuidor'] + " Correo Electronico: " + cd['correo'] + " Comentario: " +cd['comentario']
 
-            email = EmailMessage(asunto, contenido , to=['pachecofgf@gmail.com'])
-            email.attach_file(request.FILES['adjunto'].temporary_file_path())
-            email.send()
+            attach = request.FILES['adjunto']
+            if attach:
+                email = EmailMessage(asunto, contenido , to=['pachecofgf@gmail.com'])
+                email.attach(attach.name, attach.read(), attach.content_type)
+                email.send()
             return render(request, 'successfully.html', {'form': form})
     else:
         form = ConsultaFormulario(initial={'codigo': request.GET['consulta'],'nombre': request.GET['nombrecon']})
