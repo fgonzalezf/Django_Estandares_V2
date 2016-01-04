@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 from django.shortcuts import render,HttpResponseRedirect
 from django.views.generic import TemplateView,ListView,CreateView
 from .models import Documento,Versiones,FormularioConsulta
@@ -41,7 +43,7 @@ def FormularioConsultaView(request):
         if form.is_valid():
 
             cd = form.cleaned_data
-            asunto= "Sugerencias al estandar " +cd['codigo']+" " + cd['nombre']
+            asunto= "Consulta Pública :".decode('utf-8') +cd['codigo']+" " + cd['nombre']
             contenido= "Mensaje de: " +cd['contibuidor'] + " Correo Electronico: " + cd['correo'] + " Comentario: " +cd['comentario']
 
             attach = request.FILES['adjunto']
@@ -51,7 +53,12 @@ def FormularioConsultaView(request):
                 email.send()
             return render(request, 'successfully.html', {'form': form})
     else:
-        form = ConsultaFormulario(initial={'codigo': request.GET['consulta'],'nombre': request.GET['nombrecon']})
+        Documentos= Documento.objects.filter(codigo__contains=request.GET['consulta'])
+        nombre =""
+        for doc in Documentos:
+            nombre=doc.nombre
+
+        form = ConsultaFormulario(initial={'codigo': request.GET['consulta'],'nombre': nombre})
     return render(request, 'Formulario.html', {'form': form})
 
 
