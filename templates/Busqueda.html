@@ -47,12 +47,12 @@
             <td>{{ doc.fechaPublicacion }}</td>
            <td>{{ doc.vigencia }}</td>
            <td>{% for version in ver %}
-               <a href="{{ version.url }}" >"Ver_"{{ version.nombre }}__{{ version.fecha }}</a></BR>
+               <a href="{{ version.url }}" download >"Ver_"{{ version.nombre }}__{{ version.fecha }} </a></BR>
                 {% endfor %}
 
                </td>
            <td>{% if doc.discusion == "SI" %} <a method="get" href={% url 'Formulario_Consulta_publica' %}?consulta={{ doc.codigo }}>Ver Consulta Publica </a>  {% else %} NO {% endif %}</td>
-           <td><a href="{{ doc.url }}">Descarga </a> </td>
+           <td><a href="{{ doc.url }}" download>Descarga </a> </td>
         </tr>
             {% endfor %}
 

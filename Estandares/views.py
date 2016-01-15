@@ -46,11 +46,15 @@ def FormularioConsultaView(request):
             asunto= "Consulta Pública :".decode('utf-8') +cd['codigo']+" " + cd['nombre']
             contenido= "Mensaje de: " +cd['contibuidor'] + " Correo Electronico: " + cd['correo'] + " Comentario: " +cd['comentario']
 
-            attach = request.FILES['adjunto']
-            if attach:
-                email = EmailMessage(asunto, contenido , to=['pachecofgf@gmail.com'])
+
+
+            email = EmailMessage(asunto, contenido , to=['jescallon@sgc.gov.co'])
+            try:
+                attach = request.FILES['adjunto']
                 email.attach(attach.name, attach.read(), attach.content_type)
-                email.send()
+            except:
+                pass
+            email.send()
             return render(request, 'successfully.html', {'form': form})
     else:
         Documentos= Documento.objects.filter(codigo__contains=request.GET['consulta'])

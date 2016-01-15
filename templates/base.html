@@ -112,14 +112,14 @@
            {% block Contenido%}
                <div class="jumbotron"  style="margin:0 auto 0 auto" >
                     <div class="row" style="margin:0 auto 0 auto ; width: 500px;">
-                        <h4 style="text-align: center">Busqueda por Temática y Area </h4>
+                        <h4 style="text-align: center">Búsqueda por Tipo de Estándar y Área </h4>
                         <form class="form-inline" role="form" action="{% url 'Consulta' %}" method="post" >
                             {% csrf_token %}
 
                           <div class="form-group">
                             <div class="form-group">
                             <select class="form-control" name="Tematica">
-                              <option value="" selected="selected">Seleccione la Temática</option>
+                              <option value="" selected="selected">Todos Los Tipos</option>
                               <option value="MANUAL">Manuales</option>
                               <option value="PROCESO">Procesos</option>
                               <option value="PROCEDIMIENTO">Procedimientos y Estándares</option>
@@ -131,7 +131,7 @@
                           </div>
                               <div class="form-group">
                             <select class="form-control" name="Area">
-                              <option value="" selected="selected">Seleccione el Area</option>
+                              <option value="" selected="selected">Todas las Áreas</option>
                               <option value="HIDROCARBUROS">Hidrocarburos</option>
                               <option value="LABORATORIOS">Laboratorios</option>
                               <option value="NUCLEARES">Asuntos Nucleares</option>
