@@ -111,8 +111,8 @@
            <p class="lead">{% block titulopagina %}{% endblock %}</p>
            {% block Contenido%}
                <div class="jumbotron"  style="margin:0 auto 0 auto" >
-                    <div class="row" style="margin:0 auto 0 auto ; width: 500px;">
-                        <h4 style="text-align: center">Búsqueda por Tipo de Estándar y Área </h4>
+                    <div class="row" style="margin:0 auto 0 auto ; width: 700px;">
+                        <h4 style="text-align: center">Búsqueda por Tipo de Estándar y Proceso </h4>
                         <form class="form-inline" role="form" action="{% url 'Consulta' %}" method="post" >
                             {% csrf_token %}
 
@@ -120,25 +120,31 @@
                             <div class="form-group">
                             <select class="form-control" name="Tematica">
                               <option value="" selected="selected">Todos Los Tipos</option>
-                              <option value="MANUAL">Manuales</option>
-                              <option value="PROCESO">Procesos</option>
-                              <option value="PROCEDIMIENTO">Procedimientos y Estándares</option>
-                              <option value="GUIA">Guías e instructivos de Trabajo</option>
-                              <option value="REGISTRO">Registros</option>
-                                <option value="GESTION">Gestión de Información</option>
+                                <option value="MANUAL">Manuales</option>
+                                <option value="GUIA">Guías</option>
+                                <option value="PROCEDIMIENTO">Procedimientos</option>
+                                <option value="INSTRUCTIVO">Instructivos</option>
+                                <option value="METODO">Métodos de ensayo</option>
+                                <option value="FORMATO">Formatos</option>
+                                <option value="PLANTILLA">Plantillas</option>
 
                             </select>
                           </div>
                               <div class="form-group">
                             <select class="form-control" name="Area">
-                              <option value="" selected="selected">Todas las Áreas</option>
-                              <option value="HIDROCARBUROS">Hidrocarburos</option>
-                              <option value="LABORATORIOS">Laboratorios</option>
-                              <option value="NUCLEARES">Asuntos Nucleares</option>
-                              <option value="MINERALES">Recursos Minerales</option>
-                              <option value="GEOAMENAZAS">Geoamenazas</option>
-                              <option value="GEOCIENCIAS">Geociencias Básicas</option>
-
+                                <option value="" selected="selected">Todos los Procesos</option>
+                                <option value="GEOCIENCIAS">Investigación En Geociencias Básicas</option>
+                                <option value="MINERALES">Investigación y Evaluación De Recursos Minerales</option>
+                                <option value="GEOAMENAZAS">Investigación, Evaluación y Monitoreo De Amenazas Geológicas</option>
+                                <option value="GEOLOGIA">Investigación y Caracterización De Materiales Geológicos</option>
+                                <option value="ENSAYO">Prestación Ensayo o Servicio</option>
+                                <option value="HIDROCARBUROS">Investigación Y Evaluación De Recursos Hidrocarburíferos</option>
+                                <option value="NUCLEARES">Investigación y Aplicación De Tecnologías Nucleares</option>
+                                <option value="RADIACTIVOS">Control De Instalaciones y Desechos Radiactivos</option>
+                                <option value="TECNOLOGIAS_NUCLEARES">Tecnologías Nucleares</option>
+                                <option value="GEOCIENTÍFICOS">Gestión Del Conocimiento Geocientífico</option>
+                                <option value="COMUNICACIONES">Gestión De Tecnonologías De Información y Comunicaciones</option>
+                                <option value="EQUIPOS">Administración De Equipos Operacionales De Apoyo y Medición</option>
                             </select>
                           </div>
                               <div class="form-group" >
